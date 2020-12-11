@@ -38,9 +38,10 @@ hr{
     display: flex;
     justify-content: space-between;
     height: 50px;
+    font-size: 20px;
 }
 
-.question{
+.question-text{
     font-size: 24px;
     font-weight: bold;
     padding: 5px;

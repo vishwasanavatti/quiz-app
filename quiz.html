@@ -9,35 +9,28 @@
         <div class="start-box box-container">
             <h3>Instructions</h3>
             <p>15 seconds to answer each question and you cannot go back.</p>
-            <p>Total Questions: <span class="question-size">10</span></p>
-            <button class="btn">Start</button>
+            <p>Total Questions: <span class="question-size"></span></p>
+            <button class="btn" onclick="startQuiz()">Start</button>
         </div>
 
-        <div class="question-box box-container">
+        <div class="question-box box-container" style="display: none">
             <div class="quiz-head">
                 <div class="question-count">
-                    <p>Questions 1 of 10</p>
                 </div>
                 <div class="timer">
-                    <p>Time: 15s</p>
                 </div>
             </div>
             <hr>
-            <div class="question">
-                What is 5+5?
+            <div class="question-text">
             </div>
             <div class="option-container">
-                <div class="option">8</div>
-                <div class="option">9</div>
-                <div class="option">10</div>
-                <div class="option">11</div>
             </div>
             <div class="next-btn">
-                <button class="btn">next</button>
+                <button class="btn" onclick="next()">next</button>
             </div>
         </div>
 
-        <div class="box-container">
+        <div class="result-box box-container" style="display: none">
             <div class="result">
                 <h1>Result</h1>
                 <h3>Well Done</h2>
@@ -45,8 +38,8 @@
                 <p>Total time taken: 120s</p> 
             </div>
             <div class="result-btn">
-                <button class="btn">Try Again</button>
-                <button class="btn">Go Home</button>
+                <button class="btn" onclick="startQuiz()">Try Again</button>
+                <button class="btn" onclick="goHome()">Go Home</button>
             </div>
             <div class="best-score">
                 <p>Top 5 Best Score </p>
@@ -69,5 +62,6 @@
                 </table>
             </div>
         </div>
+        <script src="resources/js/quiz.js"></script>
     </body>
 </html>
