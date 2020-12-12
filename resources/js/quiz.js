@@ -84,23 +84,42 @@ const resultBox = document.getElementsByClassName("result-box");
 const score = document.querySelector(".score");
 const timeTaken = document.querySelector(".time-taken");
 
+//global variables declared here
+let TotalTimeAvailable = 10; //total time per question
+timeAvailable.innerHTML = TotalTimeAvailable;
 let questionNumber = 0;
 let questionAnswerIndex = 0;
 let availableQuestion = [];
 let correctAnswerCount = 0;
-let TotalTimeAvailable = 10;
-timeAvailable.innerHTML = TotalTimeAvailable;
 let secondsCount = TotalTimeAvailable;
 let time;
 let totalTimeTaken = 0;
 let totalTime = TotalTimeAvailable * questionsLength;
 
+//this function is called when start is clicked
+function startQuiz() {
+  questionNumber = 0;
+  availableQuestion = [];
+  totalTimeTaken = 0;
+  correctAnswerCount = 0;
+
+  startBox[0].style.display = "none";
+  questionBox[0].style.display = "";
+  resultBox[0].style.display = "none";
+
+  setQuestions();
+
+  getQuestions();
+}
+
+//Here questions are set to an array
 function setQuestions() {
   for (let i = 0; i < questionsLength; i++) {
     availableQuestion.push(quizQuestions[i]);
   }
 }
 
+//Here questions are taken randomly from array and are displayed
 function getQuestions() {
   nextButton.disabled = true;
   //setting question counter
@@ -159,21 +178,7 @@ function getQuestions() {
   questionNumber++;
 }
 
-function startQuiz() {
-  questionNumber = 0;
-  availableQuestion = [];
-  totalTimeTaken = 0;
-  correctAnswerCount = 0;
-
-  startBox[0].style.display = "none";
-  questionBox[0].style.display = "";
-  resultBox[0].style.display = "none";
-
-  setQuestions();
-
-  getQuestions();
-}
-
+//Next function is called to display next question
 function next() {
   if (questionNumber != questionsLength) {
     getQuestions();
@@ -186,17 +191,22 @@ function next() {
   }
 }
 
+//This will go back to home
 function goHome() {
   startBox[0].style.display = "";
   questionBox[0].style.display = "none";
   resultBox[0].style.display = "none";
 }
 
+//This function fetches the answer
 function getAnswer(element) {
   nextButton.disabled = false;
   clearInterval(time);
+  //Max is set to avoid negative value
   totalTimeTaken += Math.max(TotalTimeAvailable - secondsCount - 1, 0);
   secondsCount = TotalTimeAvailable;
+
+  //correct and wrong are set by adding css class
   const id = parseInt(element.id);
   if (id === questionAnswerIndex) {
     correctAnswerCount++;
@@ -205,6 +215,7 @@ function getAnswer(element) {
     element.classList.add("wrong");
   }
 
+  //disabling click after answer is selected
   const optLen = optionContainer.children.length;
   for (let i = 0; i < optLen; i++) {
     if (parseInt(optionContainer.children[i].id) === questionAnswerIndex) {
@@ -214,6 +225,7 @@ function getAnswer(element) {
   }
 }
 
+//timer count down
 function questionTimer() {
   timer.innerHTML = "Time: " + secondsCount + " s";
   secondsCount--;
