@@ -37,7 +37,7 @@ let questionNumber = 0;
 let questionAnswerIndex = 0;
 let availableQuestion = [];
 let correctAnswerCount = 0;
-let TotalTimeAvailable = 5;
+let TotalTimeAvailable = 15;
 timeAvailable.innerHTML = TotalTimeAvailable;
 let secondsCount = TotalTimeAvailable;
 let time;
@@ -110,7 +110,7 @@ function getQuestions() {
 function startQuiz() {
   questionNumber = 0;
   availableQuestion = [];
-  totalTimetaken = 0;
+  totalTimeTaken = 0;
   correctAnswerCount = 0;
 
   startBox[0].style.display = "none";
