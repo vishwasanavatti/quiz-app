@@ -8,7 +8,7 @@
     <body>
         <div class="start-box box-container">
             <h3>Instructions</h3>
-            <p>15 seconds to answer each question and you cannot go back.</p>
+            <p><span class="time-available"></span> seconds to answer each question and you cannot go back.</p>
             <p>Total Questions: <span class="question-size"></span></p>
             <button class="btn" onclick="startQuiz()">Start</button>
         </div>
@@ -26,40 +26,19 @@
             <div class="option-container">
             </div>
             <div class="next-btn">
-                <button class="btn" onclick="next()">next</button>
+                <button id="next" class="btn" onclick="next()">next</button>
             </div>
         </div>
 
         <div class="result-box box-container" style="display: none">
             <div class="result">
                 <h1>Result</h1>
-                <h3>Well Done</h2>
-                <p>you answered 8/10 correct.</p>   
-                <p>Total time taken: 120s</p> 
+                <p>you answered <span class="score"></span> correct.</p>   
+                <p>Total time taken: <span class="time-taken"></span></p> 
             </div>
             <div class="result-btn">
                 <button class="btn" onclick="startQuiz()">Try Again</button>
                 <button class="btn" onclick="goHome()">Go Home</button>
-            </div>
-            <div class="best-score">
-                <p>Top 5 Best Score </p>
-                <table class="score-table">
-                    <tr>
-                        <th>Score</th>
-                        <th>Time in s</th>
-                        <th>Date</th>
-                    </tr>
-                    <tr>
-                        <td>7/10</td>
-                        <td>120</td>
-                        <td>08/12/2020</td>
-                    </tr>
-                    <tr>
-                        <td>7/10</td>
-                        <td>120</td>
-                        <td>08/12/2020</td>
-                    </tr>
-                </table>
             </div>
         </div>
         <script src="resources/js/quiz.js"></script>
