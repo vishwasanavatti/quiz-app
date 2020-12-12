@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="resources/css/style.css">
+    </head>
+    <body>
+        <div class="start-box box-container">
+            <h3>Instructions</h3>
+            <p><span class="time-available"></span> seconds to answer each question and you cannot go back.</p>
+            <p>Total Questions: <span class="question-size"></span></p>
+            <button class="btn" onclick="startQuiz()">Start</button>
+        </div>
+
+        <div class="question-box box-container" style="display: none">
+            <div class="quiz-head">
+                <div class="question-count">
+                </div>
+                <div class="timer">
+                </div>
+            </div>
+            <hr>
+            <div class="question-text">
+            </div>
+            <div class="option-container">
+            </div>
+            <div class="next-btn">
+                <button id="next" class="btn" onclick="next()">next</button>
+            </div>
+        </div>
+
+        <div class="result-box box-container" style="display: none">
+            <div class="result">
+                <h1>Result</h1>
+                <p>you answered <span class="score"></span> correct.</p>   
+                <p>Total time taken: <span class="time-taken"></span></p> 
+            </div>
+            <div class="result-btn">
+                <button class="btn" onclick="startQuiz()">Try Again</button>
+                <button class="btn" onclick="goHome()">Go Home</button>
+            </div>
+        </div>
+        <script src="resources/js/quiz.js"></script>
+    </body>
+</html>
