@@ -1,18 +1,69 @@
 const quizQuestions = [
   {
-    question: "what is 5+5?",
-    options: [5, 6, 9, 10],
-    answer: 3,
+    question: "What is the largest country in the world?",
+    options: ["Russia", "Canada", "China", "United States"],
+    answer: 0,
   },
   {
-    question: "what is 5+1?",
-    options: [5, 6, 9, 10],
-    answer: 1,
+    question: "Which of these species is not extinct?",
+    options: [
+      "Komodo dragon",
+      "Japanese sea lion",
+      "Tasmanian tiger",
+      "Saudi gazelle",
+    ],
+    answer: 0,
   },
   {
-    question: "what is the capital of Germany?",
-    options: ["Munich", "Dortmund", "Berlin", "Stuttgart"],
-    answer: 2,
+    question: "Which ocean borders the west coast of the United States?",
+    options: ["Pacific", "Atlantic", "Indian", "Arctic"],
+    answer: 0,
+  },
+  {
+    question: "Which nation claims ownership of Antarctica?",
+    options: [
+      "No one, but there are claims.",
+      "United States of America",
+      "United Nations",
+      "Australia",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Leonardo Di Caprio won his first Best Actor Oscar for his performance in which film?",
+    options: [
+      "The Revenant",
+      "The Wolf Of Wall Street",
+      "Inception",
+      "Shutter Island",
+    ],
+    answer: 0,
+  },
+  {
+    question: "How many manned moon landings have there been?",
+    options: [6, 1, 3, 7],
+    answer: 0,
+  },
+  {
+    question: "What is the fastest land animal?",
+    options: ["Cheetah", "Lion", "Thomson Gazelle", "Pronghorn Antelope"],
+    answer: 0,
+  },
+  {
+    question: "Botanically speaking, which of these fruits is NOT a berry?",
+    options: ["Strawberry", "Blueberry", "Banana", "Concord Grape"],
+    answer: 0,
+  },
+  {
+    question: "Which of the following is NOT a real element?",
+    options: ["Vitrainium", "Praseodymium", "Hassium", "Lutetium"],
+    answer: 0,
+  },
+  {
+    question: "Harvard University is located in which city?",
+    options: ["Cambridge", "Providence", "New York", "Washington D.C."],
+    answer: 0,
   },
 ];
 
@@ -37,7 +88,7 @@ let questionNumber = 0;
 let questionAnswerIndex = 0;
 let availableQuestion = [];
 let correctAnswerCount = 0;
-let TotalTimeAvailable = 15;
+let TotalTimeAvailable = 10;
 timeAvailable.innerHTML = TotalTimeAvailable;
 let secondsCount = TotalTimeAvailable;
 let time;
@@ -51,6 +102,7 @@ function setQuestions() {
 }
 
 function getQuestions() {
+  nextButton.disabled = true;
   //setting question counter
   questionCount.innerHTML =
     "Question " + (questionNumber + 1) + " of " + questionsLength;
